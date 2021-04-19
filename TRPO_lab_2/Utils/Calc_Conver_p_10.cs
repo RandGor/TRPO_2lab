@@ -74,7 +74,7 @@ namespace TRPO_lab_2.Utils
         {
             int sign = 1;
 
-            if (P_num[0] == '-')
+            if (P_num[0] == Extensions.minus[0])
             {
                 P_num = P_num.Substring(1);
                 sign = -1;
@@ -87,7 +87,7 @@ namespace TRPO_lab_2.Utils
 
             foreach (char ch in P_num)
             {
-                if (ch != Utils.Extensions.delim[0])
+                if (ch != Extensions.delim[0])
                 {
                     result += char_To_num(ch) * Math.Pow(P, weight);
                     weight--;

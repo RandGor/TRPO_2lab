@@ -132,9 +132,11 @@ namespace TRPO_lab_2.Utils
         //в с.с. с основанием р и точностью с знаков.
         public static string Do(double n, int p, int c)
         {
+            bool negative = n<0;
+            n = n * (negative?-1:1);
             String v1 = int_to_P((long)n, p);
             String v2 = flt_to_P(n % 1, p, c);
-            return v1 + Extensions.delim + v2;
+            return (negative?Extensions.minus:"")+ v1 + Extensions.delim + v2;
 
         }
     }

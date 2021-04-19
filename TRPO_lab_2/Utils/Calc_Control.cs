@@ -12,7 +12,7 @@ namespace TRPO_lab_2.Utils
         private int pIn = 10;
 
         //точность
-        public int acuracy = 0;
+        public int acuracy = 10;
 
         //объект редактор
         private Calc_Editor editor = new Calc_Editor();
@@ -28,6 +28,8 @@ namespace TRPO_lab_2.Utils
 
         //флаг фокуса на левом поле
         private bool leftFocus = true;
+
+        private Calc_Processor.Operation nextOperation = Calc_Processor.Operation.None;
 
         //рассчитать результат
         public string Calculate()
@@ -56,15 +58,29 @@ namespace TRPO_lab_2.Utils
 
             history.AddRecord(record);
 
+            processor.operation = nextOperation;
+
+            if (processor.operation != Calc_Processor.Operation.None) { 
+                processor.function1 = Calc_Processor.Function.None;
+                processor.function2 = Calc_Processor.Function.None;
+            }
+
             return processor.Lop_Res.a.ToString();
         }
 
         //Установка операции
         public void SetOperation(Calc_Processor.Operation operation)
         {
+            editor.operation = Extensions.GetOperand(operation);
+
+            nextOperation = operation;
+
+            if (!leftFocus)
+                return;
+
             processor.operation = operation;
 
-            editor.operation = Extensions.GetOperand(operation);
+
         }
 
         //Установка функции
@@ -96,6 +112,13 @@ namespace TRPO_lab_2.Utils
         //приписать цифру к числу справа
         public void AddDigit(char v)
         {
+
+            if (!leftFocus && editor.operation.Length != 0)
+            {
+                Calculate();
+                leftFocus = false;
+                editor.Clear();
+            }
             if (editor.operation.Length != 0)
             {
                 CommitDigit();

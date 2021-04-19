@@ -65,9 +65,9 @@ namespace TRPO_lab_2
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.историяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.конвертерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.labelAcuracy = new System.Windows.Forms.Label();
-            this.конвертерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericFrom)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -438,12 +438,20 @@ namespace TRPO_lab_2
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
+            // конвертерToolStripMenuItem
+            // 
+            this.конвертерToolStripMenuItem.Name = "конвертерToolStripMenuItem";
+            this.конвертерToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.конвертерToolStripMenuItem.Text = "Конвертер";
+            this.конвертерToolStripMenuItem.Click += new System.EventHandler(this.конвертерToolStripMenuItem_Click);
+            // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(12, 64);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(179, 45);
             this.trackBar1.TabIndex = 57;
+            this.trackBar1.Value = 10;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // labelAcuracy
@@ -451,16 +459,9 @@ namespace TRPO_lab_2
             this.labelAcuracy.AutoSize = true;
             this.labelAcuracy.Location = new System.Drawing.Point(12, 97);
             this.labelAcuracy.Name = "labelAcuracy";
-            this.labelAcuracy.Size = new System.Drawing.Size(66, 13);
+            this.labelAcuracy.Size = new System.Drawing.Size(72, 13);
             this.labelAcuracy.TabIndex = 58;
-            this.labelAcuracy.Text = "Точность: 0";
-            // 
-            // конвертерToolStripMenuItem
-            // 
-            this.конвертерToolStripMenuItem.Name = "конвертерToolStripMenuItem";
-            this.конвертерToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.конвертерToolStripMenuItem.Text = "Конвертер";
-            this.конвертерToolStripMenuItem.Click += new System.EventHandler(this.конвертерToolStripMenuItem_Click);
+            this.labelAcuracy.Text = "Точность: 10";
             // 
             // CalcForm
             // 
